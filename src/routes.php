@@ -7,6 +7,7 @@ $app->get('/', function ($request, $response, $args) {
         'title' => 'Topic Roulette',
         'topic' => $topic,
         'tags' => explode(',', $topic['tags']),
+        'id' => base_convert($topic['id'], 10, 36),
     ]);
 });
 
@@ -23,5 +24,6 @@ $app->get('/{id}', function ($request, $response, $args) {
         'title' => 'Topic Roulette / ' . $topic,
         'topic' => $topic,
         'tags' => explode(',', $topic['tags']),
+        'id' => base_convert($topic['id'], 10, 36),
     ]);
 });
