@@ -16,7 +16,7 @@ class Topic extends AbstractSeed
     {
  $csv = <<<EOF
 id,title,tags,status
-1,"Can you hear the sound of one hand clapping?","philosophi,buddhism",1
+1,"Can you hear the sound of one hand clapping?","philosophy,buddhism",1
 2,"What is your favoritie dish?","personal",1
 3,"What is your favorite color?","personal",1
 4,"Have you lived abroad?","personal",1
