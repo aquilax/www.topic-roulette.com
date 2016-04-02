@@ -1,10 +1,33 @@
+body {
+    background: url(soft_circle_scales.png);
+}
 .container {
+    background: #fff;
+    padding: 1em;;
     max-width: 768px;
     margin: 0 auto;
+    font-family: 'Open Sans', sans-serif;
+    border-radius: 5px;
+}
+h1{
+    font-size: 4em;
+    margin:0;
+}
+h2 {
+    font-size: 3em;
 }
 h1, h2, .header {
     text-align: center;
 }
 .small {
     font-size: 0.8em;
+}
+.q { quotes: '\201c' '\201d'; }
+.q:before { content: open-quote; }
+.q:after  { content: close-quote; }
+button {
+    font-size: 1.2em;
+}
+.center {
+    text-align: center;
 }

@@ -1,7 +1,10 @@
 {% extends "layout.html" %}
 {% block content %}
-    <h2>{{ topic.title|escape }}</h2>
+    <h2 class="q">{{ topic.title|escape }}</h2>
     {% if tags %}
     <p>Tags: {% for tag in tags %}#{{ tag|e }} {% endfor %}
     {% endif %}
+    <div class="center">
+        <button onclick="location.reload();">New topic</button>
+    </div>
 {% endblock %}
