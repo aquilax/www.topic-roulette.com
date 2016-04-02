@@ -1,0 +1,7 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h2>{{ topic.title|escape }}</h2>
+    {% if tags %}
+    <p>Tags: {% for tag in tags %}#{{ tag|e }} {% endfor %}
+    {% endif %}
+{% endblock %}

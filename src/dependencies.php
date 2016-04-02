@@ -15,3 +15,12 @@ $container['view'] = function ($c) {
 
     return $view;
 };
+
+$container['database'] = function ($c) {
+    $settings = $c->get('settings')['database'];
+    return new \PDO($settings['dsn']);
+};
+
+$container['model'] = function ($c) {
+    return new \Topic\Model($c);
+};

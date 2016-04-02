@@ -1,7 +1,27 @@
 <?php
 // Routes
 
-$app->get('/[{name}]', function ($request, $response, $args) {
-    // Render index view
-    return $this->view->render($response, 'index.phtml', $args);
+$app->get('/', function ($request, $response, $args) {
+    $topic = $this->model->loadRandomTopic();
+    return $this->view->render($response, 'index.html', [
+        'title' => 'Topic Roulette',
+        'topic' => $topic,
+        'tags' => explode(',', $topic['tags']),
+    ]);
+});
+
+$app->get('/{id}', function ($request, $response, $args) {
+    $id = base_convert($args['id'], 36, 10);
+    $topic = $this->model->loadTopic($id);
+    if (!$topic) {
+        return $response
+            ->withStatus(404)
+            ->withHeader('Content-Type', 'text/html')
+            ->write('Page not found');
+    }
+    return $this->view->render($response, 'index.html', [
+        'title' => 'Topic Roulette / ' . $topic,
+        'topic' => $topic,
+        'tags' => explode(',', $topic['tags']),
+    ]);
 });

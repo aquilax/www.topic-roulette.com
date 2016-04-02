@@ -1,0 +1,10 @@
+.container {
+    max-width: 768px;
+    margin: 0 auto;
+}
+h1, h2, .header {
+    text-align: center;
+}
+.small {
+    font-size: 0.8em;
+}

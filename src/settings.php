@@ -6,7 +6,11 @@ return [
         // View settings
         'view' => [
             'template_path' => __DIR__ . '/../templates/',
-            'cache_path' => __DIR__ . '/../cache/',
+            'cache_path' => false//__DIR__ . '/../cache/',
         ],
+
+        'database' => [
+            'dsn' => 'sqlite:'.__DIR__.'/../db/data.sqlite3',
+        ]
     ],
 ];
