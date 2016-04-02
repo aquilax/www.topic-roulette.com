@@ -1,14 +1,13 @@
 {
-    "name": "slim/slim-skeleton",
-    "description": "A Slim Framework skeleton application for rapid development",
-    "keywords": ["microframework","rest","router", "psr7"],
-    "homepage": "http://github.com/slimphp/Slim-Skeleton",
+    "name": "aquilax/topic-roulette.com",
+    "description": "www.topic-roulette.com",
+    "homepage": "https://github.com/aquilax/www.topic-roulette.com",
     "license": "MIT",
     "authors": [
         {
-            "name": "Josh Lockhart",
-            "email": "info@joshlockhart.com",
-            "homepage": "http://www.joshlockhart.com/"
+            "name": "aquilax",
+            "email": "aquilax@gmail.com",
+            "homepage": "http://www.topic-roulette.com/"
         }
     ],
     "autoload": {

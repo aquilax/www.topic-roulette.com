@@ -3,6 +3,10 @@ return [
     'settings' => [
         'displayErrorDetails' => true, // set to false in production
 
+        'site' => [
+            'domain' => 'www.topic-roulette.com',
+        ],
+
         // View settings
         'view' => [
             'template_path' => __DIR__ . '/../templates/',
