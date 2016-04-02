@@ -15,11 +15,11 @@ class Topic extends AbstractSeed
     public function run()
     {
  $csv = <<<EOF
-title,tags,status
-"What is the first memory you have?","personal",1
-"What is your favoritie dish?","personal",1
-"What is your favorite color?","personal",1
-"Have you lived abroad?","personal",1
+id,title,tags,status
+1,"Can you hear the sound of one hand clapping?","philosophi,buddhism",1
+2,"What is your favoritie dish?","personal",1
+3,"What is your favorite color?","personal",1
+4,"Have you lived abroad?","personal",1
 EOF;
         $data = array();
         $header = array();
