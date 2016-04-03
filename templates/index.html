@@ -13,7 +13,7 @@
     <div id="disqus_thread"></div>
     <script>
         var disqus_config = function () {
-            this.page.url = 'http://{{domain}}/topic/{{ topic.id|convert_id }}';
+            this.page.url = 'http://{{domain}}/topic/{{ topic.id|convert_id }}-{{ topic.title|slugify}}';
             this.page.identifier = {{topic.id}};
         };
         (function() {  // DON'T EDIT BELOW THIS LINE
