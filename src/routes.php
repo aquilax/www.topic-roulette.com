@@ -2,12 +2,14 @@
 // Routes
 
 $app->get('/', function ($request, $response, $args) {
+    $siteSettings = $this->get('settings')['site'];
     $topic = $this->model->getRandomTopic();
     return $this->view->render($response, 'index.html', [
         'title' => 'Topic Roulette',
         'topic' => $topic,
         'tags' => explode(',', $topic['tags']),
         'id' => base_convert($topic['id'], 10, 36),
+        'domain' => $siteSettings['domain'],
     ]);
 });
 
@@ -31,6 +33,7 @@ $app->get('/topic/add', function ($request, $response, $args) {
 $app->get('/topic/{id}', function ($request, $response, $args) {
     $id = base_convert($args['id'], 36, 10);
     $topic = $this->model->getTopic($id);
+    $siteSettings = $this->get('settings')['site'];
     if (!$topic) {
         return $response
             ->withStatus(404)
@@ -42,6 +45,8 @@ $app->get('/topic/{id}', function ($request, $response, $args) {
         'topic' => $topic,
         'tags' => explode(',', $topic['tags']),
         'id' => base_convert($topic['id'], 10, 36),
+        'domain' => $siteSettings['domain'],
+        'show_comments' => true,
     ]);
 });
 
