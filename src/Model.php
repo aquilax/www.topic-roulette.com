@@ -17,7 +17,7 @@ class Model
 
     public function getAll()
     {
-        $sql = 'SELECT id
+        $sql = 'SELECT id, title
                 FROM topic
                 WHERE status = :status
                 ORDER BY id DESC';

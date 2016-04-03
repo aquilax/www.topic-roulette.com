@@ -15,7 +15,11 @@ $container['view'] = function ($c) {
     $convertId = new Twig_SimpleFilter('convert_id', function ($id) {
         return base_convert($id, 10, 36);
     });
-    $view->getEnvironment()->addFilter($convertId);
+    $environment = $view->getEnvironment();
+    $environment->addFilter($convertId);
+    $environment->addExtension(
+        new Cocur\Slugify\Bridge\Twig\SlugifyExtension(Cocur\Slugify\Slugify::create())
+    );
 
     return $view;
 };

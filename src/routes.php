@@ -28,9 +28,9 @@ $app->get('/topic/add', function ($request, $response, $args) {
     ]);
 });
 
-
 $app->get('/topic/{id}', function ($request, $response, $args) {
-    $id = base_convert($args['id'], 36, 10);
+    $sid = array_shift(explode('-', $args['id']));
+    $id = base_convert($sid, 36, 10);
     $topic = $this->model->getTopic($id);
     $siteSettings = $this->get('settings')['site'];
     if (!$topic) {
@@ -45,6 +45,7 @@ $app->get('/topic/{id}', function ($request, $response, $args) {
         'tags' => explode(',', $topic['tags']),
         'domain' => $siteSettings['domain'],
         'show_comments' => true,
+        'add_permalink' => true,
     ]);
 });
 
