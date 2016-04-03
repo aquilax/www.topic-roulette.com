@@ -22,5 +22,5 @@ $container['database'] = function ($c) {
 };
 
 $container['model'] = function ($c) {
-    return new \Topic\Model($c);
+    return new \Topic\Model($c->database);
 };
