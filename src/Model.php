@@ -8,11 +8,11 @@ class Model
     const STATUS_DISABLED = 0;
     const STATUS_ENABLED = 1;
 
-    private $c;
+    private $pdo;
 
-    public function __construct($c)
+    public function __construct($pdo)
     {
-        $this->c = $c;
+        $this->pdo = $pdo;
     }
 
     public function getAll()
@@ -21,12 +21,11 @@ class Model
                 FROM topic
                 WHERE status = :status
                 ORDER BY id DESC';
-        $stmt = $this->c->database->prepare($sql);
+        $stmt = $this->pdo->prepare($sql);
         $stmt->bindValue(':status', self::STATUS_ENABLED, \PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
-
 
     public function getTopic($id)
     {
@@ -35,7 +34,7 @@ class Model
                 WHERE id = :id
                 AND status = :status
                 LIMIT 1';
-        $stmt = $this->c->database->prepare($sql);
+        $stmt = $this->pdo->prepare($sql);
         $stmt->bindValue(':id', $id, \PDO::PARAM_INT);
         $stmt->bindValue(':status', self::STATUS_ENABLED, \PDO::PARAM_INT);
         $stmt->execute();
@@ -49,7 +48,7 @@ class Model
     public function getRandomTopic()
     {
         $sql = 'SELECT * FROM topic WHERE status = :status ORDER BY RANDOM() LIMIT 1';
-        $stmt = $this->c->database->prepare($sql);
+        $stmt = $this->pdo->prepare($sql);
         $stmt->bindValue(':status', self::STATUS_ENABLED, \PDO::PARAM_INT);
         $stmt->execute();
         $res = $stmt->fetchAll(\PDO::FETCH_ASSOC);
@@ -62,7 +61,7 @@ class Model
     public function addTopic($title, $tags)
     {
         $sql = 'INSERT INTO topic (title, tags, status) VALUES (:title, :tags, :status);';
-        $stmt = $this->c->database->prepare($sql);
+        $stmt = $this->pdo->prepare($sql);
         $stmt->bindValue(':title', $title, \PDO::PARAM_STR);
         $stmt->bindValue(':tags', $tags, \PDO::PARAM_STR);
         $stmt->bindValue(':status', self::STATUS_DISABLED, \PDO::PARAM_INT);

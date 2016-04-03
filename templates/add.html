@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h2>Suggest new topic</h2>
+    <form method="post">
+        <label for="title">Topic</label>
+        <textarea id="title" name="title" maxlength="255"></textarea>
+        <label for="tags">Topic</label>
+        <input id="tags" name="tags" maxlength="255" />
+        <label for="user">Leave this field empty</label>
+        <input id="user" name="user" />
+        <button type="submit">Add</button>
+    </form>
+{% endblock %}

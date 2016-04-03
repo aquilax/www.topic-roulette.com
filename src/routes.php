@@ -21,6 +21,13 @@ $app->get('/sitemap', function ($request, $response, $args) {
     ]);
 });
 
+$app->get('/topic/add', function ($request, $response, $args) {
+    return $this->view->render($response, 'add.html', [
+        'title' => 'Topic Roulette / Add new topic',
+    ]);
+});
+
+
 $app->get('/topic/{id}', function ($request, $response, $args) {
     $id = base_convert($args['id'], 36, 10);
     $topic = $this->model->getTopic($id);
