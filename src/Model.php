@@ -58,13 +58,13 @@ class Model
         return array();
     }
 
-    public function addTopic($title, $tags)
+    public function addTopic($title, $tags, $status = self::STATUS_DISABLED)
     {
         $sql = 'INSERT INTO topic (title, tags, status) VALUES (:title, :tags, :status);';
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindValue(':title', $title, \PDO::PARAM_STR);
         $stmt->bindValue(':tags', $tags, \PDO::PARAM_STR);
-        $stmt->bindValue(':status', self::STATUS_DISABLED, \PDO::PARAM_INT);
+        $stmt->bindValue(':status', $status, \PDO::PARAM_INT);
         $stmt->execute();
         return $this->pdo->lastInsertId();
     }

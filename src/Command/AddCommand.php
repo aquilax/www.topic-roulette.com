@@ -38,7 +38,7 @@ class AddCommand extends Command
 
         $pdo = new \PDO($settings['settings']['database']['dsn']);
         $model = new Model($pdo);
-        $result = $model->addTopic($title, $tags);
+        $result = $model->addTopic($title, $tags, Model::STATUS_ENABLED);
         $output->writeln(sprintf('http://%s/topic/%d', $settings['settings']['site']['domain'], $result));
     }
 }
