@@ -12,6 +12,10 @@ $container['view'] = function ($c) {
     // Instantiate and add Slim specific extension
     $basePath = rtrim(str_ireplace('index.php', '', $c['request']->getUri()->getBasePath()), '/');
     $view->addExtension(new Slim\Views\TwigExtension($c['router'], $basePath));
+    $convertId = new Twig_SimpleFilter('convert_id', function ($id) {
+        return base_convert($id, 10, 36);
+    });
+    $view->getEnvironment()->addFilter($convertId);
 
     return $view;
 };
