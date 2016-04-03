@@ -65,6 +65,7 @@ class Model
         $stmt->bindValue(':title', $title, \PDO::PARAM_STR);
         $stmt->bindValue(':tags', $tags, \PDO::PARAM_STR);
         $stmt->bindValue(':status', self::STATUS_DISABLED, \PDO::PARAM_INT);
-        return $stmt->execute();
+        $stmt->execute();
+        return $this->pdo->lastInsertId();
     }
 }
