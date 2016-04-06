@@ -14,10 +14,10 @@ $app->get('/', function ($request, $response, $args) {
 
 $app->get('/sitemap', function ($request, $response, $args) {
     $siteSettings = $this->get('settings')['site'];
-    $links = $this->model->getAll();
+    $topics = $this->model->getAll();
     $newResponse = $response->withHeader('Content-type', 'text/xml');
     return $this->view->render($newResponse, 'sitemap.xml', [
-        'links' => $links,
+        'topics' => $topics,
         'domain' => $siteSettings['domain'],
     ]);
 });
