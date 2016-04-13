@@ -40,7 +40,7 @@ $app->get('/topic/{id}', function ($request, $response, $args) {
             ->write('Page not found');
     }
     return $this->view->render($response, 'index.html', [
-        'title' => 'Topic Roulette / ' . $topic,
+        'title' => 'Topic Roulette / ' . $topic['title'],
         'topic' => $topic,
         'tags' => explode(',', $topic['tags']),
         'domain' => $siteSettings['domain'],
