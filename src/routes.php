@@ -40,7 +40,8 @@ $app->post('/topic/add', function ($request, $response, $args) {
         mb_strlen($allPostVars['tags']) > 3) {
         $tags = trim(strip_tags($allPostVars['tags']));
     }
-    if ($title && $tags) {
+    $user = $allPostVars['user'];
+    if (empty($user) && $title && $tags) {
         $this->model->addTopic($title, $tags);
     }
     return $response->withRedirect('/');
