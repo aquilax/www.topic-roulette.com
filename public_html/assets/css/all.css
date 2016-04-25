@@ -41,3 +41,21 @@ button {
 .ar {
     text-align: right;
 }
+.important {
+    display: none;
+}
+form label {
+    display: block;
+    font-weight: bold;
+    margin: 0 0 .4em 0;
+}
+
+form textarea {
+    width:99%;
+    height: 5em;
+}
+
+form input {
+    width:99%;
+    margin: 0 0 2em 0;
+}

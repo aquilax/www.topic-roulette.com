@@ -28,6 +28,24 @@ $app->get('/topic/add', function ($request, $response, $args) {
     ]);
 });
 
+$app->post('/topic/add', function ($request, $response, $args) {
+    $title = '';
+    $tags = '';
+    $allPostVars = $request->getParsedBody();
+    if (isset($allPostVars['title']) &&
+        mb_strlen($allPostVars['title']) > 3) {
+        $title = trim(strip_tags($allPostVars['title']));
+    }
+    if (isset($allPostVars['tags']) &&
+        mb_strlen($allPostVars['tags']) > 3) {
+        $tags = trim(strip_tags($allPostVars['tags']));
+    }
+    if ($title && $tags) {
+        $this->model->addTopic($title, $tags);
+    }
+    return $response->withRedirect('/');
+});
+
 $app->get('/topic/{id}', function ($request, $response, $args) {
     $sid = array_shift(explode('-', $args['id']));
     $id = base_convert($sid, 36, 10);
