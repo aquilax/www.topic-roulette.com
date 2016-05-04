@@ -42,7 +42,7 @@ $app->post('/topic/add', function ($request, $response, $args) {
     }
     $user = $allPostVars['user'];
     if (empty($user) && $title && $tags) {
-        $this->model->addTopic($title, $tags);
+        $id = $this->model->addTopic($title, $tags);
     }
     return $response->withRedirect('/');
 });
