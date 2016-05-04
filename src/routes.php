@@ -4,11 +4,13 @@
 $app->get('/', function ($request, $response, $args) {
     $siteSettings = $this->get('settings')['site'];
     $topic = $this->model->getRandomTopic();
+    $latest = $this->model->getLatest(10);
     return $this->view->render($response, 'index.html', [
         'title' => 'Topic Roulette',
         'topic' => $topic,
         'tags' => explode(',', $topic['tags']),
         'domain' => $siteSettings['domain'],
+        'latest' => $latest,
     ]);
 });
 
@@ -48,7 +50,8 @@ $app->post('/topic/add', function ($request, $response, $args) {
 });
 
 $app->get('/topic/{id}', function ($request, $response, $args) {
-    $sid = array_shift(explode('-', $args['id']));
+    $slug = explode('-', $args['id']);
+    $sid = array_shift($slug);
     $id = base_convert($sid, 36, 10);
     $topic = $this->model->getTopic($id);
     $siteSettings = $this->get('settings')['site'];
@@ -58,12 +61,11 @@ $app->get('/topic/{id}', function ($request, $response, $args) {
             ->withHeader('Content-Type', 'text/html')
             ->write('Page not found');
     }
-    return $this->view->render($response, 'index.html', [
+    return $this->view->render($response, 'show.html', [
         'title' => 'Topic Roulette / ' . $topic['title'],
         'topic' => $topic,
         'tags' => explode(',', $topic['tags']),
         'domain' => $siteSettings['domain'],
-        'show_comments' => true,
         'add_permalink' => true,
     ]);
 });
