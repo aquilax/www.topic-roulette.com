@@ -1,5 +1,7 @@
 {% extends "layout.html" %}
-
+{% block head %}
+{% if add_permalink %}<link rel="canonical" href="http://{{domain}}/topic/{{ topic.id|convert_id }}-{{ topic.title|slugify}}" />{% endif%}
+{% endblock %}
 {% block content %}
     <h2 class="q">{{ topic.title|escape }}</h2>
     <div class="center">
@@ -16,16 +18,6 @@
     <script>
       (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
-    <h3>Latest topics:</h3>
-    <ul>
-    {% for single in latest %}
-        <li>
-            <a href="/topic/{{single.id|convert_id}}-{{single.title|slugify}}">{{single.title}}</a>
-        </li>
-        {{ user.name }}
-    {% endfor %}
-    </ul>
-    {% if show_comments %}
     <div id="disqus_thread"></div>
     <script>
         var disqus_config = function () {
@@ -42,10 +34,4 @@
         })();
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-    {% endif %}
-{% endblock %}
-
-{% block head %}
-{% if add_permalink %}<link rel="canonical" href="http://{{domain}}/topic/{{ topic.id|convert_id }}-{{ topic.title|slugify}}" />
-    <link rel="amphtml" href="http://{{domain}}/topic/{{ topic.id|convert_id }}-{{ topic.title|slugify}}/amp" />{% endif%}
 {% endblock %}

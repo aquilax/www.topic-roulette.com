@@ -26,7 +26,9 @@ $container['view'] = function ($c) {
 
 $container['database'] = function ($c) {
     $settings = $c->get('settings')['database'];
-    return new \PDO($settings['dsn']);
+    $pdo =  new \PDO($settings['dsn']);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    return $pdo;
 };
 
 $container['model'] = function ($c) {

@@ -2,12 +2,18 @@
 {% block content %}
     <h2>Suggest new topic</h2>
     <form method="post">
-        <label for="title">Topic</label>
-        <textarea id="title" name="title" maxlength="255"></textarea>
-        <label for="tags">Topic</label>
-        <input id="tags" name="tags" maxlength="255" />
-        <label for="user">Leave this field empty</label>
-        <input id="user" name="user" />
-        <button type="submit">Add</button>
+        <div class="form-group">
+            <label for="title">Topic</label>
+            <textarea id="title" name="title" maxlength="255"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="tags">Tags</label>
+            <input id="tags" name="tags" maxlength="255" />
+        </div>
+        <div class="form-group important">
+            <label for="user">Leave this field empty</label>
+            <input id="user" name="user" />
+        </div>
+        <button type="submit" class="btn btn-default">Add</button>
     </form>
 {% endblock %}

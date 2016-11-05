@@ -68,4 +68,19 @@ class Model
         $stmt->execute();
         return $this->pdo->lastInsertId();
     }
+
+    public function getLatest($n = 10)
+    {
+        $sql = 'SELECT id, title
+                FROM topic
+                WHERE status = :status
+                ORDER BY id DESC
+                LIMIT :limit';
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindValue(':status', self::STATUS_ENABLED, \PDO::PARAM_INT);
+        $stmt->bindValue(':limit', $n, \PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
 }

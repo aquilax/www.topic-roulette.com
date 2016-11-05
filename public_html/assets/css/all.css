@@ -6,7 +6,7 @@ body {
     padding: 1em;;
     max-width: 768px;
     margin: 0 auto;
-    font-family: 'Open Sans', sans-serif;
+    font-family: Roboto, Arial, sans-serif;
     border-radius: 5px;
 }
 h1{
@@ -40,4 +40,25 @@ button {
 }
 .ar {
     text-align: right;
+}
+.important {
+    display: none;
+}
+form label {
+    display: block;
+    font-weight: bold;
+    margin: 0 0 .4em 0;
+}
+
+form textarea {
+    width:99%;
+    height: 5em;
+}
+
+form input {
+    width:99%;
+    margin: 0 0 2em 0;
+}
+ul{
+    line-height: 1.6em;
 }
