@@ -1,0 +1,14 @@
+{% extends "layout_amp.html" %}
+{% block content %}
+    <h2 class="q">{{ topic.title|escape }}</h2>
+    <div class="center">
+        <a href="/topic/{{ topic.id|convert_id }}-{{ topic.title|slugify}}">Permalink</a> |
+        <a href="/">Show new topic</a>
+    </div>
+    {% if tags %}
+    <p>Tags: {% for tag in tags %}#{{ tag|e }} {% endfor %}
+    {% endif %}
+{% endblock %}
+{% block head %}
+{% if add_permalink %}<link rel="canonical" href="http://{{domain}}/topic/{{ topic.id|convert_id }}-{{ topic.title|slugify}}" />{% endif%}
+{% endblock %}

@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0b8a51ac894724d049bbb7e78870ee95",
-    "content-hash": "ec6c58c17f4df06f7fe1c94372807106",
+    "hash": "ec24e662269cee7f28194744aeeb0dba",
+    "content-hash": "8d9a5184288366e600ad3424f4c337c2",
     "packages": [
         {
             "name": "cocur/slugify",
@@ -95,6 +95,57 @@
             ],
             "description": "Promoting the interoperability of container objects (DIC, SL, etc.)",
             "time": "2014-12-30 15:22:37"
+        },
+        {
+            "name": "longman/telegram-bot",
+            "version": "0.29",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/akalongman/php-telegram-bot.git",
+                "reference": "999ee2e7b154be1c9fb2f6ea9cc3d1d640303a80"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/akalongman/php-telegram-bot/zipball/999ee2e7b154be1c9fb2f6ea9cc3d1d640303a80",
+                "reference": "999ee2e7b154be1c9fb2f6ea9cc3d1d640303a80",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-pdo": "*",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "phpspec/phpspec": "~2.1",
+                "phpunit/phpunit": "~4.1",
+                "squizlabs/php_codesniffer": "~2.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Longman\\TelegramBot\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Avtandil Kikabidze aka LONGMAN",
+                    "email": "akalongman@gmail.com",
+                    "homepage": "http://longman.me",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP telegram bot",
+            "homepage": "https://github.com/akalongman/php-telegram-bot",
+            "keywords": [
+                "api",
+                "bot",
+                "telegram"
+            ],
+            "time": "2016-03-22 18:41:50"
         },
         {
             "name": "nikic/fast-route",

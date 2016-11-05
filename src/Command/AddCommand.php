@@ -22,9 +22,9 @@ class AddCommand extends Command
                 'Topic text'
             )
             ->addArgument(
-               'tags',
-               InputArgument::REQUIRED,
-               'Topic tags'
+                'tags',
+                InputArgument::REQUIRED,
+                'Topic tags'
             )
         ;
     }

@@ -21,7 +21,8 @@
         "slim/twig-view": "^2.1",
         "robmorgan/phinx": "^0.5.3",
         "symfony/console": "^3.0",
-        "cocur/slugify": "^2.0"
+        "cocur/slugify": "^2.0",
+        "longman/telegram-bot": "^0.29.0"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "2.*"
